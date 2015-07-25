@@ -19,8 +19,6 @@ var playedTournamentsThisYear = 20;
 
 
 
-
-
 if (age >= 18) {
  console.log(nowHour < 12 ? "Good Morning"+" "+nickname.toUpperCase()+", "+"welcome to the poker room":"Hello"+" "+nickname.toUpperCase()+", "+"welcome to the poker room");
 } else {
@@ -124,6 +122,52 @@ function reminderForAddict() {
   dif = winningsTotalLastYear - totalWinningsThisYear;
   if (dif > 0) {
     console.log("You have again "+dif+"$ to win to beat your personnal record of the last year, play again NOW !!!");
-      }
+  }
 }
 reminderForAddict();
+
+
+// define an object and theirs property
+// in this case you can only use property for negreanu object
+var negreanu = {
+  firstName: "Daniel",
+  lastName: "Negreanu",
+  nickName: "Kid Poker",
+  // a property can also contain a function
+  fullName: function() {
+  return this.firstName + " " + this.lastName;
+ }
+}; //dont forget the ;
+
+  // adding a property to an existing object is ok with the affection symbol
+  negreanu.lifeCashEarned = "30,622,513$";
+
+if (nickname != "Kid Poker") {
+  //accessing to the property of an object
+console.log("If you work hard and be lucky, maybe you can beat "+ negreanu.fullName()+" who as ever won " + negreanu.lifeCashEarned);
+}
+
+
+// create a TYPE in UpperCamelCase, this function is called a Constructor
+// property of each instance is stocked in keyword THIS
+function VipPlayer(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+}
+
+
+// instanciate an object with the operator new
+var selbst = new VipPlayer("Vanessa","Selbst");
+var cailly = new VipPlayer("Lucille","Cailly");
+var kitai = new VipPlayer("Davidi","Kitai");
+
+//call it
+console.log("but start to beat "+kitai.firstName+" "+kitai.lastName+" with his 6,215,642$ will be good too");
+
+//after create a TYPE, define function for it with PROTOTYPE keyword
+VipPlayer.prototype.fullName = function() {
+  return this.firstName + " " + this.lastName;
+};
+
+// So now you can call fullName METHOD on all objects of type VipPlayer
+console.log(kitai.fullName()+ " is the best belgium poker player.");
