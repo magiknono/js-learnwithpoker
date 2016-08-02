@@ -1,0 +1,11 @@
+body {
+  background-color: #eee;
+}
+
+img.poker-player {
+  border: 5px solid red;
+}
+
+.img-circle {
+  border-radius: 50%;
+}
